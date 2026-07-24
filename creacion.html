@@ -3238,6 +3238,11 @@ i.ti > svg {
     [data-theme="dark"] .med-prog-air { color:#7db8e8; }
     [data-theme="dark"] .med-dif-flag { color:#f0a0a0; }
 </style>
+<style>
+  /* Este módulo se abre solo, sin el menú lateral de navegación */
+  .app{ grid-template-columns: 1fr !important; }
+  .sidebar{ display: none !important; }
+</style>
 </head>
 <body>
 
@@ -3359,7 +3364,8 @@ i.ti > svg {
   <!-- MAIN -->
   <main class="main">
     <header class="topbar">
-      <div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="publix-general.html" style="display:flex;align-items:center;gap:6px;color:var(--ink-3);text-decoration:none;font-size:13px;font-weight:500;padding:7px 12px;border:1px solid var(--border);border-radius:8px;transition:background .15s ease;"><i class="ti ti-arrow-left"></i> Publix</a>
         <div class="topbar-title" id="page-title">
           Creación
           <small id="page-subtitle">Resumen semanal por producto · órdenes a finca</small>
