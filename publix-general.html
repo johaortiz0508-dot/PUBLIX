@@ -156,6 +156,35 @@
     font-size: 13px;
     font-family: var(--font-mono);
   }
+  .module-card-active{
+    border: 1.5px solid var(--line);
+    background: var(--surface);
+    text-decoration: none;
+    color: var(--ink);
+    align-items: flex-start;
+    text-align: left;
+    transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 1px 2px rgba(23,36,28,0.04);
+  }
+  .module-card-active:hover{
+    border-color: var(--forest);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(23,36,28,0.08);
+  }
+  .module-card-active .plus{
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #F3F0E6;
+  }
+  .module-card-active .label-title{
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .module-card-active .label{
+    color: var(--ink-soft);
+  }
   .empty-note{
     margin-top: 36px;
     padding: 16px 18px;
@@ -187,23 +216,26 @@
   <main>
     <div class="intro">
       <div class="eyebrow">Módulos</div>
-      <h1>Aún no hay módulos configurados</h1>
-      <p>Este panel está listo para crecer. En cuanto definamos qué necesitas — comparación de órdenes, seguimiento diario, análisis de WO, o algo distinto — lo agregamos aquí como una tarjeta más.</p>
+      <h1>Tus herramientas de operación</h1>
+      <p>Entra a cada módulo para trabajar con tus reportes. Más adelante se pueden agregar más tarjetas aquí.</p>
     </div>
 
     <div class="module-grid">
-      <div class="module-card">
-        <div class="plus">+</div>
-        <div class="label">Próximo módulo</div>
-      </div>
-      <div class="module-card">
-        <div class="plus">+</div>
-        <div class="label">Próximo módulo</div>
-      </div>
-      <div class="module-card">
-        <div class="plus">+</div>
-        <div class="label">Próximo módulo</div>
-      </div>
+      <a class="module-card module-card-active" href="itrade.html">
+        <div class="plus"><i class="mod-icon">▤</i></div>
+        <div class="label-title">iTrade</div>
+        <div class="label">Carga y valida el reporte de iTrade</div>
+      </a>
+      <a class="module-card module-card-active" href="creacion.html">
+        <div class="plus"><i class="mod-icon">▤</i></div>
+        <div class="label-title">Creación</div>
+        <div class="label">Resumen semanal por producto · órdenes a finca</div>
+      </a>
+      <a class="module-card module-card-active" href="logistica-med.html">
+        <div class="plus"><i class="mod-icon">▤</i></div>
+        <div class="label-title">Logística MED</div>
+        <div class="label">Programación de despachos desde Medellín</div>
+      </a>
     </div>
 
     <div class="empty-note">
