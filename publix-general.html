@@ -48,8 +48,21 @@
   }
   .brand{
     display:flex;
-    align-items:baseline;
-    gap: 10px;
+    align-items:center;
+    gap: 14px;
+  }
+  .home-pill{
+    display:flex;
+    align-items:center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest-deep);
+    background: var(--gold-soft);
+    padding: 5px 11px;
+    border-radius: 999px;
   }
   .brand .name{
     font-family: var(--font-display);
@@ -203,6 +216,7 @@
 <body>
   <header>
     <div class="brand">
+      <span class="home-pill"><i class="ti-home">⌂</i> Inicio</span>
       <span class="name">Publix<em>Ops</em></span>
       <span class="sub">Panel de operaciones</span>
     </div>
