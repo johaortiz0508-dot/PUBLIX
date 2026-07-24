@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publix · Panel</title>
+<title>Publix · Inicio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,6 +24,8 @@
     --moss: #2F6844;
     --gold: #C99A2E;
     --gold-soft: #E7CE8C;
+    --rose: #C06B85;
+    --steel: #4F6E8C;
     --line: #E4DFD3;
     --font-display: 'Fraunces', serif;
     --font-body: 'Inter', sans-serif;
@@ -38,45 +40,37 @@
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
-  header{
+
+  /* ---------- Top bar ---------- */
+  .topbar{
     display:flex;
     align-items:center;
     justify-content: space-between;
-    padding: 22px 40px;
+    padding: 18px 40px;
     background: var(--forest-deep);
     color: #F3F0E6;
   }
   .brand{
     display:flex;
     align-items:center;
-    gap: 14px;
+    gap: 10px;
   }
-  .home-pill{
-    display:flex;
-    align-items:center;
-    gap: 5px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--forest-deep);
+  .brand .mark{
+    width: 32px; height: 32px;
+    border-radius: 9px;
     background: var(--gold-soft);
-    padding: 5px 11px;
-    border-radius: 999px;
+    color: var(--forest-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
   }
   .brand .name{
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 22px;
+    font-size: 19px;
   }
   .brand .name em{ font-style: italic; font-weight: 300; color: var(--gold-soft); }
-  .brand .sub{
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #B9C7BC;
-  }
   .user-chip{
     display:flex;
     align-items:center;
@@ -94,6 +88,7 @@
     justify-content:center;
     font-weight: 600;
     font-family: var(--font-mono);
+    font-size: 13px;
   }
   .logout{
     color: #D9E3DA;
@@ -106,154 +101,237 @@
   }
   .logout:hover{ background: rgba(243,240,230,0.1); }
 
-  main{
+  /* ---------- Hero (this IS the home screen) ---------- */
+  .hero{
+    position: relative;
+    padding: 64px 40px 56px;
+    background:
+      radial-gradient(90% 140% at 8% 0%, rgba(125,160,70,0.16) 0%, rgba(125,160,70,0) 55%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .hero-inner{
     max-width: 1080px;
     margin: 0 auto;
-    padding: 56px 40px 80px;
+    position: relative;
+    z-index: 1;
   }
-  .intro{
-    margin-bottom: 40px;
-  }
-  .eyebrow{
+  .hero-eyebrow{
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--moss);
+    display:flex;
+    align-items:center;
+    gap: 8px;
   }
-  .intro h1{
+  .hero-eyebrow::before{
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    display:inline-block;
+  }
+  .hero h1{
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 34px;
-    margin: 10px 0 8px 0;
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 14px 0 10px 0;
+    line-height: 1.1;
   }
-  .intro p{
+  .hero h1 em{ font-style: italic; font-weight: 400; color: var(--forest); }
+  .hero p{
     color: var(--ink-soft);
-    max-width: 560px;
+    max-width: 520px;
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
   }
 
+  /* ---------- Main / module grid ---------- */
+  main{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+  }
+  .section-label{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
   .module-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
   }
   .module-card{
-    border: 1.5px dashed var(--line);
-    border-radius: 12px;
-    padding: 28px 22px;
-    min-height: 150px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align:center;
-    color: var(--ink-soft);
-    background: #FCFBF8;
-  }
-  .module-card .plus{
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size: 18px;
-    color: var(--moss);
-    margin-bottom: 12px;
-  }
-  .module-card .label{
-    font-size: 13px;
-    font-family: var(--font-mono);
-  }
-  .module-card-active{
-    border: 1.5px solid var(--line);
-    background: var(--surface);
+    position: relative;
+    display: block;
     text-decoration: none;
     color: var(--ink);
-    align-items: flex-start;
-    text-align: left;
-    transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 24px 24px;
+    overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     box-shadow: 0 1px 2px rgba(23,36,28,0.04);
   }
-  .module-card-active:hover{
-    border-color: var(--forest);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(23,36,28,0.08);
+  .module-card::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent, var(--forest));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
   }
-  .module-card-active .plus{
-    background: var(--forest);
-    border-color: var(--forest);
-    color: #F3F0E6;
+  .module-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(23,36,28,0.10);
+    border-color: var(--accent, var(--forest));
   }
-  .module-card-active .label-title{
+  .module-card:hover::before{ transform: scaleX(1); }
+  .module-icon{
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    background: color-mix(in srgb, var(--accent, var(--forest)) 14%, white);
+    color: var(--accent, var(--forest));
+    margin-bottom: 18px;
+  }
+  .module-icon svg{ width: 24px; height: 24px; }
+  .module-title{
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 17px;
-    margin-bottom: 4px;
+    font-size: 19px;
+    margin-bottom: 6px;
   }
-  .module-card-active .label{
+  .module-desc{
+    font-size: 13.5px;
     color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 18px;
   }
-  .empty-note{
-    margin-top: 36px;
-    padding: 16px 18px;
+  .module-cta{
+    display:flex;
+    align-items:center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: var(--accent, var(--forest));
+    font-weight: 500;
+  }
+  .module-cta svg{
+    width: 14px; height: 14px;
+    transition: transform .18s ease;
+  }
+  .module-card:hover .module-cta svg{ transform: translateX(3px); }
+
+  .module-card.placeholder{
+    border-style: dashed;
+    background: transparent;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color: var(--ink-soft);
+    min-height: 100%;
+  }
+  .module-card.placeholder .module-icon{
+    background: transparent;
+    border: 1.5px dashed var(--line);
+    color: var(--ink-soft);
+    font-size: 20px;
+  }
+  .module-card.placeholder:hover{ transform:none; box-shadow:none; border-color: var(--line); }
+  .module-card.placeholder::before{ display:none; }
+
+  .footnote{
+    margin-top: 32px;
+    padding: 14px 18px;
     border-left: 3px solid var(--gold);
     background: #FBF6E9;
     font-size: 13px;
     color: var(--ink-soft);
     border-radius: 0 8px 8px 0;
   }
+
   @media (max-width: 640px){
-    header{ padding: 18px 20px; }
-    main{ padding: 40px 20px 60px; }
+    .topbar{ padding: 16px 20px; }
+    .hero{ padding: 44px 20px 40px; }
+    main{ padding: 36px 20px 60px; }
   }
 </style>
 </head>
 <body>
-  <header>
+  <div class="topbar">
     <div class="brand">
-      <span class="home-pill"><i class="ti-home">⌂</i> Inicio</span>
+      <span class="mark">P</span>
       <span class="name">Publix<em>Ops</em></span>
-      <span class="sub">Panel de operaciones</span>
     </div>
     <div class="user-chip">
       <span class="avatar" id="avatarInitial">?</span>
       <span id="userLabel">—</span>
       <a href="#" class="logout" id="logoutBtn">Salir</a>
     </div>
-  </header>
+  </div>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Inicio</div>
+      <h1 id="greeting">Bienvenido<em>.</em></h1>
+      <p>Este es el panel principal de tu operación de distribución. Entra a un módulo para empezar a trabajar.</p>
+    </div>
+  </div>
 
   <main>
-    <div class="intro">
-      <div class="eyebrow">Módulos</div>
-      <h1>Tus herramientas de operación</h1>
-      <p>Entra a cada módulo para trabajar con tus reportes. Más adelante se pueden agregar más tarjetas aquí.</p>
-    </div>
-
+    <div class="section-label">Módulos</div>
     <div class="module-grid">
-      <a class="module-card module-card-active" href="itrade.html">
-        <div class="plus"><i class="mod-icon">▤</i></div>
-        <div class="label-title">iTrade</div>
-        <div class="label">Carga y valida el reporte de iTrade</div>
+      <a class="module-card" style="--accent:#5e8033" href="itrade.html">
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+        </div>
+        <div class="module-title">iTrade</div>
+        <div class="module-desc">Carga y valida el reporte de iTrade — datos limpios y vista por producto en segundos.</div>
+        <div class="module-cta">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
       </a>
-      <a class="module-card module-card-active" href="creacion.html">
-        <div class="plus"><i class="mod-icon">▤</i></div>
-        <div class="label-title">Creación</div>
-        <div class="label">Resumen semanal por producto · órdenes a finca</div>
+
+      <a class="module-card" style="--accent:#a0455e" href="creacion.html">
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2c1.5 2 1.5 4 0 6-1.5-2-1.5-4 0-6ZM12 22c1.5-2 1.5-4 0-6-1.5 2-1.5 4 0 6ZM2 12c2-1.5 4-1.5 6 0-2 1.5-4 1.5-6 0ZM22 12c-2-1.5-4-1.5-6 0 2 1.5 4 1.5 6 0Z"/></svg>
+        </div>
+        <div class="module-title">Creación</div>
+        <div class="module-desc">Resumen semanal por producto y seguimiento de órdenes a finca, con históricos bloqueados.</div>
+        <div class="module-cta">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
       </a>
-      <a class="module-card module-card-active" href="logistica-med.html">
-        <div class="plus"><i class="mod-icon">▤</i></div>
-        <div class="label-title">Logística MED</div>
-        <div class="label">Programación de despachos desde Medellín</div>
+
+      <a class="module-card" style="--accent:#5a7fa8" href="logistica-med.html">
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="15" height="11"/><path d="M16 10h3l3 3v5h-6z"/><circle cx="5.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>
+        </div>
+        <div class="module-title">Logística MED</div>
+        <div class="module-desc">Programación de despachos desde Medellín — semanas, camiones y cambios de grower.</div>
+        <div class="module-cta">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
       </a>
+
+      <div class="module-card placeholder">
+        <div class="module-icon">+</div>
+        <div class="module-desc" style="margin-bottom:0;">Próximo módulo</div>
+      </div>
     </div>
 
-    <div class="empty-note">
-      Nota: esta pantalla se completa a medida que definimos los módulos de Publix. Nada se pierde — cada módulo nuevo se agrega como una tarjeta con su propio enlace.
+    <div class="footnote">
+      Nota: esta pantalla crece con tu operación — cada módulo nuevo se agrega aquí como una tarjeta más.
     </div>
   </main>
 
@@ -261,6 +339,11 @@
   const user = sessionStorage.getItem('publix_user') || '';
   document.getElementById('userLabel').textContent = user;
   document.getElementById('avatarInitial').textContent = user ? user[0].toUpperCase() : '?';
+
+  const hour = new Date().getHours();
+  const greetWord = hour < 12 ? 'Buenos días' : (hour < 19 ? 'Buenas tardes' : 'Buenas noches');
+  const displayName = user ? user.charAt(0).toUpperCase() + user.slice(1) : '';
+  document.getElementById('greeting').innerHTML = `${greetWord}${displayName ? ', ' + displayName : ''}<em>.</em>`;
 
   document.getElementById('logoutBtn').addEventListener('click', function(e){
     e.preventDefault();
